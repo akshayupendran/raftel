@@ -1,10 +1,14 @@
-# WSL2 with Ubuntu
+# WSL2 Setup
 
 ## Author: Akshay Krishna Upendran
 
 ## Winget
 
 Get the windows package manager from [GitHub](https://github.com/microsoft/winget-cli/releases)
+
+## Install font if required
+
+Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 
 ## Terminal
 
@@ -19,6 +23,7 @@ Get the windows package manager from [GitHub](https://github.com/microsoft/winge
 - Upgrade the local packages.
 - Install man-db.
 - Install tree.
+- Install Git
 
 ## Adding WSL Distro to Terminal (Already completed if you have copied [Terminal Configuration File](./terminal_settings.json))
 
@@ -35,7 +40,6 @@ Get the windows package manager from [GitHub](https://github.com/microsoft/winge
 
 ## Git
 
-- Install Git
 - git clone [Akshay's Wiki](https://github.com/akshayupendran/wsl-setup.git)
 
 ## Adding and editing DotFiles

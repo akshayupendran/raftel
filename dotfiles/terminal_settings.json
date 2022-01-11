@@ -51,13 +51,17 @@
             },
             {
                 "colorScheme": "Raspberry",
+                "font": 
+                {
+                    "face": "FantasqueSansMono Nerd Font"
+                },
                 "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
                 "hidden": false,
                 "name": "Ubuntu-20.04",
                 "source": "Windows.Terminal.Wsl"
             },
             {
-		"commandline": "debian.exe",
+                "commandline": "debian.exe",
                 "guid": "{c857f6d0-5d4b-45e3-9bb0-a13e19bc1628}",
                 "hidden": false,
                 "name": "Debian"
