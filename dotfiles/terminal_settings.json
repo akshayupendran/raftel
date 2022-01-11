@@ -62,6 +62,10 @@
             },
             {
                 "commandline": "debian.exe",
+                "font": 
+                {
+                    "face": "FantasqueSansMono Nerd Font"
+                },
                 "guid": "{c857f6d0-5d4b-45e3-9bb0-a13e19bc1628}",
                 "hidden": false,
                 "name": "Debian"

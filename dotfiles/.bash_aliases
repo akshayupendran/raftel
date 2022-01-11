@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 
+# User Modified configurations
+#-------------------- USER BASED SETTINGS ---------------------
+alias dl="cd /mnt/c/Users/akrish10/Downloads"
+alias dt="cd '/mnt/c/Users/akrish10/OneDrive - Visteon/Desktop'"
+alias p="cd ~/wsl-setup"
+#--------------------------------------------------------------
+
 ## Author Akshay Krishna Upendran
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
-
-# User Modified configurations
-alias dl="cd /mnt/c/Users/akrish10/Downloads"
-alias dt="cd '/mnt/c/Users/akrish10/OneDrive - Visteon/Desktop'"
-alias p="cd ~/wsl-setup"
 
 # Shortcuts
 alias g="git"

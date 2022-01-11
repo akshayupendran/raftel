@@ -131,6 +131,15 @@ fi
 # Cloned from https://github.com/magicmonty/bash-git-prompt
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
+    GIT_PROMPT_SHOW_UPSTREAM=1
+    # -------------------- USER BASED SETTINGS ---------------------
+    GIT_PROMPT_THEME=Plague_Doctor
+    # Overwrite PS1 to Plague_Doctor theme and export it
+    if [ -f "$HOME/.bash-git-prompt/prompt-colors.sh" ]; then\
+        source $HOME/.bash-git-prompt/prompt-colors.sh
+        PS1="${White}\A${ResetColor} ${BoldGreen}\\u${White}@${BoldYellow}\\h ${Cyan}\w${ResetColor}${BoldWhite} $ ${ResetColor}"
+    fi
+    # --------------------------------------------------------------
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 

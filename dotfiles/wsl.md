@@ -40,24 +40,38 @@ Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 
 ## Git
 
-- git clone [Akshay's Wiki](https://github.com/akshayupendran/wsl-setup.git)
+- git clone [Akshay's Wiki](https://github.com/akshayupendran/raftel.git)
 
 ## Adding and editing DotFiles
+
+- Compare and merge the [Bash RC](./.bashrc) to home folder.
+- Change the theme in Bash RC as per your needs. The list of theme names are available in the folder ```./.bash-git-prompt/themes```. It will be found by searching for ```-------------------- USER BASED SETTINGS ---------------------```.
+- Source the bashrc.
 
 - Copy the folder [Bash Git Prompt](./.bash-git-prompt/) to Home folder.
 - The above git prompt is Forked from ```https://github.com/magicmonty/bash-git-prompt```
 
 - Copy the [Bash Aliases](./.bash_aliases) to home folder.
-- Change the user specific shortcuts as per your pc.
+- Change the user specific shortcuts as per your pc. It will be found by searching for ```-------------------- USER BASED SETTINGS ---------------------```.
 - The aliases are documented in [Functions and Aliases](./functions_aliases.md)
 
 - Copy the [LS Colors](./.dircolors) to home folder. Forked from ```https://github.com/trapd00r/LS_COLORS```.
-- Copy the [Functions](./.functions) to home folder.
-- The functions are documented in [Functions and Aliases](./functions_aliases.md)
+- Copy the following files forked from ```https://github.com/mathiasbynens/dotfiles```:
 
-- Compare and merge the [Bash RC](./.bashrc) to home folder.
-- Change the theme in Bash RC as per your needs. The list of theme names are available in the folder ```./.bash-git-prompt/themes```.
-- Source the bashrc.
+1. .curlrc
+2. .editorconfig
+3. .exports
+4. .functions
+5. .gdbinit
+6. .gitconfig
+7. .gitignore
+8. .gvimrc
+9. .hushlogin
+10. .inputrc
+11. .screenrc
+12. .tmux.conf
+13. .vimrc
+14. .wgetrc
 
 - Configure global user name via ```git config --global user.name "Foo Bar"```
 - Configure global user email via ```git config --global user.email foo@bar.com"``
