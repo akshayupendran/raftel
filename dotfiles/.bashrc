@@ -18,8 +18,9 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# Increase Bash history size. Allow 32³ entries; the default is 1000/2000.
+HISTSIZE=32768
+HISTFILESIZE=32768
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -37,6 +38,9 @@ shopt -s cdspell
 
 # Spell correct directory names in commands
 shopt -s dirspell
+
+# Automatically cd to directories
+shopt -s autocd
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -83,6 +87,7 @@ xterm*|rxvt*)
     ;;
 esac
 
+# Dircolors cloned from ```https://github.com/trapd00r/LS_COLORS```.
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -99,8 +104,8 @@ fi
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -l'
-alias la='ls -A'
+# ll shall show all files and folders including hidden with sizes in human readable format (*1024) with file indiciators and color.
+alias ll='ls -AFlh'
 alias l='ls -CF'
 
 # Alias definitions.
@@ -123,6 +128,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-for file in ~/.{path,bash_prompt,functions}; do
+# Cloned from https://github.com/magicmonty/bash-git-prompt
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source $HOME/.bash-git-prompt/gitprompt.sh
+fi
+
+# User specific exports and other items.
+for file in ~/.{path,exports,functions}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
+unset file;

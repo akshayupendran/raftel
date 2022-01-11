@@ -1,5 +1,7 @@
 # WSL2 with Ubuntu
 
+## Author: Akshay Krishna Upendran
+
 ## Winget
 
 Get the windows package manager from [GitHub](https://github.com/microsoft/winget-cli/releases)
@@ -34,39 +36,53 @@ Get the windows package manager from [GitHub](https://github.com/microsoft/winge
 ## Git
 
 - Install Git
-- Configure global user name via ```git config --global user.name "Foo Bar"```
-- Configure global user email via ```git config --global user.email foo@bar.com"```
 - git clone [Akshay's Wiki](https://github.com/akshayupendran/wsl-setup.git)
 
-## Adding DotFiles
+## Adding and editing DotFiles
 
-- Copy the folder [Bash Git Prompt](./.bash-git-prompt/) to Home folder. Forked from ```https://github.com/magicmonty/bash-git-prompt```
+- Copy the folder [Bash Git Prompt](./.bash-git-prompt/) to Home folder.
+- The above git prompt is Forked from ```https://github.com/magicmonty/bash-git-prompt```
+
 - Copy the [Bash Aliases](./.bash_aliases) to home folder.
 - Change the user specific shortcuts as per your pc.
-- Compare and merge the [Bash RC](./.bashrc) to home folder.
+- The aliases are documented in [Functions and Aliases](./functions_aliases.md)
+
 - Copy the [LS Colors](./.dircolors) to home folder. Forked from ```https://github.com/trapd00r/LS_COLORS```.
 - Copy the [Functions](./.functions) to home folder.
+- The functions are documented in [Functions and Aliases](./functions_aliases.md)
+
+- Compare and merge the [Bash RC](./.bashrc) to home folder.
+- Change the theme in Bash RC as per your needs. The list of theme names are available in the folder ```./.bash-git-prompt/themes```.
 - Source the bashrc.
-- Open [Git Config](./gitconfig)
+
+- Configure global user name via ```git config --global user.name "Foo Bar"```
+- Configure global user email via ```git config --global user.email foo@bar.com"``
+
+## Vscode terminal
+
+- In settings change font terminal to 'FantasqueSansMono Nerd Font'.
+- Install it from ```https://github.com/ryanoasis/nerd-fonts```
+
+## Git related help
+
+- ```git_prompt_help``` will show how the command prompt is organised.
+- ```git aliases``` will show the various aliases in git.
 
 ## Ctags
 
 - Install universal-ctags.
+- This section will be filled in the future {TBD}.
 
 ## NEOVIM
 
+- This section will be filled in the future {TBD}.
 
+## WSL conan. -> Rather use the other wiki for devNext3.
 
-
-
-- Dotfiles archived at [dotfiles](./dotfiles/) 
-- sudo apt install net-tools
-- sudo apt install ghostscript
-- sudo apt install tree
 - sudo apt install python3-pip
 - git config --global user.name akrish10
 - git config --global user.email akrish10@visteon.com
-- sudo groupadd conan_user 
+- sudo groupadd conan_user
 - sudo usermod akrish10 -aG conan_user -g conan_user
 - sudo mkdir /home/conan
 - sudo chown -R root:conan_user /home/conan/
@@ -107,3 +123,5 @@ Get the windows package manager from [GitHub](https://github.com/microsoft/winge
 - sudo apt install genisoimage
 - pip install pycryptodome
 - copy qnx license`
+
+## Author: Akshay Krishna

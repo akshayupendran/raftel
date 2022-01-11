@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 ## Author Akshay Krishna Upendran
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
 
 # User Modified configurations
 alias dl="cd /mnt/c/Users/akrish10/Downloads"
@@ -11,7 +16,7 @@ alias p="cd ~/wsl-setup"
 alias g="git"
 
 # Pass aliases to sudo commands: https://stackoverflow.com/questions/37209913/how-does-alias-sudo-sudo-work
-#alias sudo='sudo '
+alias sudo='sudo '
 
 # Useful commands
 alias week='date +%V'
