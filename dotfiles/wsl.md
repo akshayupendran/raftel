@@ -2,15 +2,16 @@
 
 ## Author: Akshay Krishna Upendran
 
-## Winget
+## Winget (Optional)
 
-Get the windows package manager from [GitHub](https://github.com/microsoft/winget-cli/releases)
+- Get the windows package manager from [GitHub](https://github.com/microsoft/winget-cli/releases)
+- Get latest from assets and install.
 
-## Install font if required
+## Install fonts (Optional)
 
 Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 
-## Terminal
+## Terminal (Optional)
 
 - Install [Terminal](https://github.com/Microsoft/Terminal) via WinGet
 - Change terminal settings as per [docs](https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes)
@@ -19,14 +20,14 @@ Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 ## WSL2
 
 - Manually install apx from [microsoft](https://docs.microsoft.com/en-us/windows/wsl/install-manual#downloading-distributions) as store is not available in Visteon.
-- Update the local packages.
-- Upgrade the local packages.
-- Install man-db.
-- Install tree.
-- Install Git.
-- Install python3-pip.
+- Update the local packages. (sudo apt update)
+- Upgrade the local packages. (sudo apt -y upgrade)
+- Install man-db. (sudo apt -y install man-db)
+- Install tree. (sudo apt -y install tree)
+- Install Git. (sudo apt -y install git)
+- Install python3-pip. (sudo apt -y install python3-pip)
 
-## Adding WSL Distro to Terminal (Already completed if you have copied [Terminal Configuration File](./terminal_settings.json))
+## Adding WSL Distro to Terminal (Optional){Already completed if you have copied [Terminal Configuration File](./terminal_settings.json)}
 
 - If WSL2 terminal not default,
   - Generate a new guid via power shell as ```[guid]::NewGuid()```.
@@ -73,12 +74,13 @@ Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 12. .screenrc
 13. .tmux.conf
 14. .vimrc
-15. .wgetrc
+15. .vim/
+16. .wgetrc
 
 - Configure global user name via ```git config --global user.name "Foo Bar"```
 - Configure global user email via ```git config --global user.email foo@bar.com"``
 
-## Vscode terminal
+## Vscode terminal (Optional)
 
 - In settings change font terminal to 'FantasqueSansMono Nerd Font'.
 - Install it from ```https://github.com/ryanoasis/nerd-fonts```
@@ -88,18 +90,16 @@ Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 - ```git_prompt_help``` will show how the command prompt is organised.
 - ```git aliases``` will show the various aliases in git.
 
-## Ctags
+## Ctags (Optional)
 
 - Install universal-ctags.
 - This section will be filled in the future {TBD}.
 
-## NEOVIM
+## NEOVIM (Optional)
 
 - This section will be filled in the future {TBD}.
 
-## WSL conan. -> Rather use the other wiki for devNext3.
-
-### Conan Server Install test
+### Conan Server Install test (Optional)
 
 - sudo groupadd conan_user
 - sudo usermod akrish10 -aG conan_user -g conan_user
@@ -109,17 +109,17 @@ Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 - sudo adduser anamica
 - sudo usermod anamica -aG conan_user -g conan_user
 
-### Install
+### DevNext3 Install
 
+- Edit the `location` in .exports.
 - ```python3 -m pip install devNext --extra-index-url https://jfrog.${location}.visteon.com/artifactory/api/pypi/pypi-virtual/simple --trusted-host jfrog.${location}.visteon.com --no-cache-dir --user```
-- make sure to remove dist in devNext file if required (3 places). In $HOME/.local/lib/python3.8/site-packages/devNext/utils/aptutil/apt.py.
+- Optionally make sure to remove dist in devNext file if required (3 places). In $HOME/.local/lib/python3.8/site-packages/devNext/utils/aptutil/apt.py.
 
-## 32 bit binaries in focal
+## 32 bit binaries in 64-bit focal
 
 - sudo dpkg --add-architecture i386
 - sudo apt-get update
 - sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
-
 
 ## Podman
 
@@ -139,7 +139,7 @@ Download and copy the Visteon_Root_CA.crt from jfrog/DevOpsApplicationEngineer/G
 podman pull jfrog.chennai.visteon.com/docker-local/vbuild_linux_devenv:devNext
 ```
 
-## System Requirements for build
+## System Requirements for build (Optional)
 
 - sudo apt install srecord
 - sudo apt install doxygen
