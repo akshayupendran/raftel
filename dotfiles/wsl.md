@@ -23,7 +23,8 @@ Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 - Upgrade the local packages.
 - Install man-db.
 - Install tree.
-- Install Git
+- Install Git.
+- Install python3-pip.
 
 ## Adding WSL Distro to Terminal (Already completed if you have copied [Terminal Configuration File](./terminal_settings.json))
 
@@ -68,10 +69,11 @@ Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 8. .gvimrc
 9. .hushlogin
 10. .inputrc
-11. .screenrc
-12. .tmux.conf
-13. .vimrc
-14. .wgetrc
+11. .path
+12. .screenrc
+13. .tmux.conf
+14. .vimrc
+15. .wgetrc
 
 - Configure global user name via ```git config --global user.name "Foo Bar"```
 - Configure global user email via ```git config --global user.email foo@bar.com"``
@@ -97,9 +99,8 @@ Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 
 ## WSL conan. -> Rather use the other wiki for devNext3.
 
-- sudo apt install python3-pip
-- git config --global user.name akrish10
-- git config --global user.email akrish10@visteon.com
+### Conan Server Install test
+
 - sudo groupadd conan_user
 - sudo usermod akrish10 -aG conan_user -g conan_user
 - sudo mkdir /home/conan
@@ -107,9 +108,11 @@ Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 - sudo chmod 770 /home/conan/
 - sudo adduser anamica
 - sudo usermod anamica -aG conan_user -g conan_user
-- export location="chennai"
-- pip install devNext -extra-index-url https://jfrog.${location}.visteon.com/artifactory/api/pypi/pypi-virtual/simple --trusted-host jfrog.${location}.visteon.com --no-cache-dir --user
-- make sure to remove dist in devNext file if required (2 places).
+
+### Install
+
+- ```python3 -m pip install devNext --extra-index-url https://jfrog.${location}.visteon.com/artifactory/api/pypi/pypi-virtual/simple --trusted-host jfrog.${location}.visteon.com --no-cache-dir --user```
+- make sure to remove dist in devNext file if required (3 places). In $HOME/.local/lib/python3.8/site-packages/devNext/utils/aptutil/apt.py.
 
 ## 32 bit binaries in focal
 
@@ -121,17 +124,20 @@ Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 ## Podman
 
 [podman on wsl2](https://www.redhat.com/sysadmin/podman-windows-wsl2)
-- . /etc/os-release
-- sudo sh -c "echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/x${NAME}_${VERSION_ID}/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
-- wget -nv https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/x${NAME}_${VERSION_ID}/Release.key -O Release.key
-- sudo apt-key add - < Release.key
-- sudo apt-get update -qq
-- sudo apt-get -qq -y install podman
-- sudo mkdir -p /etc/containers
-- echo -e "[registries.search]\nregistries = ['docker.io', 'quay.io']" | sudo tee /etc/containers/registries.conf
-- Download and copy the Zscaler root certificate from visteon.service-now.com and run sudo cp ~/ZscalerRootCertificate-2048-SHA256.crt /etc/ssl/certs/
-- Download and copy the Visteon_Root_CA.crt from jfrog/DevOpsApplicationEngineer/GIT/ and run above command.
-- podman pull jfrog.chennai.visteon.com/docker-local/vbuild_linux_devenv:devNext
+
+```bash
+. /etc/os-release
+sudo sh -c "echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/x${NAME}_${VERSION_ID}/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
+wget -nv https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/x${NAME}_${VERSION_ID}/Release.key -O Release.key
+sudo apt-key add - < Release.key
+sudo apt-get update
+sudo apt-get -y install podman
+sudo mkdir -p /etc/containers
+echo -e "[registries.search]\nregistries = ['docker.io', 'quay.io']" | sudo tee /etc/containers/registries.conf
+Download and copy the Zscaler root certificate from visteon.service-now.com and run sudo cp ~/ZscalerRootCertificate-2048-SHA256.crt /etc/ssl/certs/
+Download and copy the Visteon_Root_CA.crt from jfrog/DevOpsApplicationEngineer/GIT/ and run above command.
+podman pull jfrog.chennai.visteon.com/docker-local/vbuild_linux_devenv:devNext
+```
 
 ## System Requirements for build
 
@@ -140,6 +146,6 @@ Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 - sudo apt install graphviz
 - sudo apt install genisoimage
 - pip install pycryptodome
-- copy qnx license`
+- copy qnx license
 
 ## Author: Akshay Krishna
