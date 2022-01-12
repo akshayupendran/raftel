@@ -1,4 +1,4 @@
-# All Aliases
+# Aliases
 
 | S.No | Alias          | Description                                                                    |
 | ---- | ------         | -----------                                                                    |
@@ -52,3 +52,5 @@
 |48.   |g fb            | Find branches containing commit                                                |
 |49.   |g retag         | Remove old tag with this name and create latest commit with this tag           |
 |50.   |g reb $number   | Interactive rebase with $number of commits                                     |
+
+## Author: Akshay Krishna
