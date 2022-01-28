@@ -76,6 +76,7 @@ Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 14. .vimrc
 15. .vim/
 16. .wgetrc
+17. .gitmessage
 
 - Configure global user name via ```git config --global user.name "Foo Bar"```
 - Configure global user email via ```git config --global user.email foo@bar.com"``

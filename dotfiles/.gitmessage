@@ -1,11 +1,28 @@
 # WI <NUMBER> [Program, variant] Summary, imperative, all upper case, don't end with a period.
+# Please fill the below empty line with the title in the above format.
 # No more than 50 chars. #### 50 chars is here: #
 
-# Remember blank line between title and body.
+# Remember the below blank line between title and body.
 
-# Body: Explain *what* and *why* (not *how*).
+# Below please start the Body: Explain *what* and *why* (not *how*).
+# After the brief include this.
 # Wrap at 72 chars. ################################## which is here: #
 
+# Tests Performed (Please specify the testing you performed)
+Attachments:
+
+| S.No | Question                    | Answer | Additional Comments                                             |
+| ---- | --------                    | ------ | -------------------                                             |
+|1     | Compilation Logs (Text log) |        |                                                                 |
+|2     | QNX Boot Logs (Text log)    |        |                                                                 |
+|3     | SCU Boot Logs (Text log)    |        |                                                                 |
+|4     | UCL log(slog2info\|grep ucl)|        |                                                                 |
+|5     | Display Picture (gears demo)|        |                                                                 |
+## Repo specific requirements
+
+| S.No | Question                                | Answer  | Additional Comments |
+| ---- | --------                                | ------  | ------------------- |
+|1     | Are the files formatted?                |         |                     |
 
 # At the end: Include Co-authored-by for all contributors. 
 # Include at least one empty line before it. Format: 
@@ -21,6 +38,5 @@
 # 5. Use the imperative mood in the subject line
 # 6. Wrap the body at 72 characters
 # 7. Use the body to explain what and why vs. how
-
-# Author of Visteon template: Akshay Krishna Upendran
+# For any queries related to the commit message template, contact akrish10.
 
