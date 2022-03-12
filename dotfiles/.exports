@@ -21,3 +21,6 @@ export MANPAGER='less -X';
 
 # JFrog Server Location for Visteon
 export location='chennai';
+
+# Conan User Home for server PCs
+export CONAN_USER_HOME=/conan

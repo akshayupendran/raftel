@@ -1,0 +1,39 @@
+################################################################################
+#
+# Custom options file for clang-format, a source code
+# formatter for C/C++ (and some other languages).
+#
+# usage:
+#     clang-format -i --verbose --style=file *.c *.h
+#     Based on V6.0.0
+#
+# Author: Akshay Krishna Upendran (akrish10)
+#
+# For full options documentation, go to:
+#     https://clang.llvm.org/docs/ClangFormat.html.
+################################################################################
+# Refer File .clang-format-LLVM for default values
+BasedOnStyle:  LLVM
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlignConsecutiveMacros: true
+AlignTrailingComments: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortLambdasOnASingleLine: None
+AlwaysBreakBeforeMultilineStrings: true
+BreakBeforeBraces: Allman
+BreakBeforeTernaryOperators: false
+BreakConstructorInitializers: AfterColon
+BreakInheritanceList: AfterColon
+ColumnLimit: 120
+IndentCaseLabels: true
+IndentWidth:     4
+IndentWrappedFunctionNames: true
+KeepEmptyLinesAtTheStartOfBlocks: false
+NamespaceIndentation: All
+PenaltyReturnTypeOnItsOwnLine: 200
+PointerAlignment: Left
+SpaceAfterTemplateKeyword: false
+SpacesBeforeTrailingComments: 2
+Standard:        Auto
+TabWidth:        4
