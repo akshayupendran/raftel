@@ -100,6 +100,8 @@
 
 	# This is provided as part of devNext.
 	autocrlf = input
+	# Windows has restrictions on character size - hence use longpaths in windows.
+	longpaths = true
 
 [color]
 
