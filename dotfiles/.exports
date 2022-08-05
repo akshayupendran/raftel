@@ -23,4 +23,4 @@ export MANPAGER='less -X';
 export location='chennai';
 
 # Conan User Home for server PCs
-export CONAN_USER_HOME=/conan
+# export CONAN_USER_HOME=/conan
