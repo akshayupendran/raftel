@@ -10,6 +10,9 @@ case $- in
       *) return;;
 esac
 
+#####################
+###### HISTORY ######
+#####################
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -22,9 +25,49 @@ shopt -s histappend
 HISTSIZE=32768
 HISTFILESIZE=32768
 
+# If set, Bash attempts to save all lines of a multiple-line command in the
+# same history entry. This allows easy re-editing of multi-line commands. This
+# option is enabled by default, but only has an effect if command history is
+# enabled (see Bash History Facilities)
+shopt -s cmdhist
+
+#####################
+###### WINDOW #######
+#####################
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+#####################
+####### FILES #######
+#####################
+# If set, a command name that is the name of a directory is executed as if it
+# were the argument to the cd command. This option is only used by interactive
+# shells.
+shopt -s autocd
+
+# If set, minor errors in the spelling of a directory component in a cd command
+# will be corrected. The errors checked for are transposed characters, a
+# missing character, and a character too many. If a correction is found, the
+# corrected path is printed, and the command proceeds. This option is only used
+# by interactive shells.
+shopt -s cdspell
+
+# If set, Bash attempts spelling correction on directory names during word
+# completion if the directory name initially supplied does not exist.
+shopt -s dirspell
+
+#####################
+####### SEARCH ######
+#####################
+# If set, Bash includes filenames beginning with a ‘.’ in the results of
+# filename expansion. The filenames ‘.’ and ‘..’ must always be matched
+# explicitly, even if dotglob is set. 
+shopt -s dotglob
+
+# If set, aliases are expanded as described below under Aliases, Aliases. This
+# option is enabled by default for interactive shells.
+shopt -s expand_aliases
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -32,15 +75,6 @@ shopt -s globstar
 
 # If set, Case-insensitive globbing will be enabled(used in pathname expansion)
 shopt -s nocaseglob
-
-# Autocorrect typos in path names when using `cd`
-shopt -s cdspell
-
-# Spell correct directory names in commands
-shopt -s dirspell
-
-# Automatically cd to directories
-shopt -s autocd
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -106,7 +140,12 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # some more ls aliases
 # ll shall show all files and folders including hidden with sizes in human readable format (*1024) with file indiciators and color.
 alias ll='ls -AFlh'
+alias la='ls -A'
 alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -128,20 +167,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Cloned from https://github.com/magicmonty/bash-git-prompt
-if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
-    GIT_PROMPT_ONLY_IN_REPO=1
-    GIT_PROMPT_SHOW_UPSTREAM=1
-    # -------------------- USER BASED SETTINGS ---------------------
-    GIT_PROMPT_THEME=Plague_Doctor
-    # Overwrite PS1 to Plague_Doctor theme and export it
-    if [ -f "$HOME/.bash-git-prompt/prompt-colors.sh" ]; then\
-        source $HOME/.bash-git-prompt/prompt-colors.sh
-        PS1="${White}\A${ResetColor} ${BoldGreen}\\u${White}@${BoldYellow}\\h ${Cyan}\w${ResetColor}${BoldWhite} $ ${ResetColor}"
-    fi
-    # --------------------------------------------------------------
-    source $HOME/.bash-git-prompt/gitprompt.sh
-fi
+# Use Starship as git prompt
+eval "$(starship init bash)"
 
 # User specific exports and other items.
 for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
