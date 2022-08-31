@@ -1,5 +1,8 @@
 #!/bin/bash
 set -e
+set -x
+sudo apt update
+sudo apt upgrade
 if ! command -v starship &> /dev/null
 then
   curl -ksS https://starship.rs/install.sh | sh
@@ -11,7 +14,7 @@ fi
 
 starship preset pastel-powerline > ~/.config/starship.toml
 
-if [ -f "${HOME}.bashrc" ]; then
-	cp -f "${HOME}.bashrc" "${HOME}.bashrc.bak"
+if [[ -f ~/.bashrc ]]; then
+	mv -f ~/.bashrc ~/.bashrc.bak
 fi
 cp -RT dotfiles/ ~/
