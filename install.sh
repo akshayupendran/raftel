@@ -12,9 +12,7 @@ fi
 if ! command -v starship &> /dev/null
 then
   curl -ksS https://starship.rs/install.sh -o starship_install.sh
-  chmod +x starsihpe_install.sh
-  mkdir ~/.local
-  mkdir ~/.local/bin
+  chmod +x starship_install.sh
   starship_install.sh -b ~/.local/bin
   rm -rf starship_install.sh
 fi
