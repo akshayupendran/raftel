@@ -115,5 +115,11 @@ fi
 if [[ ! -f ~/.local/bin/git-filter-repo ]]; then
   curl -ksS https://raw.githubusercontent.com/newren/git-filter-repo/main/git-filter-repo -o ~/.local/bin/git-filter-repo
 fi
+if [[ ! -f ~/.local/bin/script.deb.sh ]]; then
+  curl -ksS https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh -o ~/.local/bin/script.deb.sh
+  ~/.local/bin/script.deb.sh
+  sudo apt update
+  sudo apt install git-lfs
+fi
 
 echo "Please run source ~/.bashrc a few times to complete installation !"
