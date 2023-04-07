@@ -17,13 +17,14 @@
 ### All Rights Reserved.
 ###
 
-set -e
+set -ex
 if command sudo -v
 then
   sudo apt -y update
   sudo apt -y upgrade
   sudo apt -y install vim
   sudo apt -y install curl
+  sudo apt -y install python3
   sudo -k
 fi
 
@@ -57,5 +58,8 @@ if ! command -v fzf &> /dev/null; then
 rm -rf ~/.fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
-source ~/.fzf.bash
 fi
+
+curl -ksS https://raw.githubusercontent.com/newren/git-filter-repo/main/git-filter-repo -o ~/.local/bin/git-filter-repo
+
+echo "Please run source ~/.bashrc a few times to complete installation !"
