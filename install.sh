@@ -46,6 +46,10 @@ if command sudo -v; then
     sudo apt -yqq install lsb-compat
   fi
 
+  if ! command -v podman &> /dev/null; then
+    sudo apt -yqq install podman
+  fi
+  
   sudo -k
 fi
 
