@@ -26,7 +26,15 @@ if command sudo -v; then
   if ! command -v vim &> /dev/null; then
     sudo apt -qq install vim
   fi
-
+  
+  if ! command -v srec_cat &> /dev/null; then
+    sudo apt -qq install srecord
+  fi
+  
+  if ! command -v autoconf &> /dev/null; then
+    sudo apt -qq install autoconf
+  fi
+  
   if ! command -v curl &> /dev/null; then
     sudo apt -qq install curl
   fi
@@ -61,6 +69,10 @@ if command sudo -v; then
 
   if ! command -v gdb &> /dev/null; then
     sudo apt -qq install gdb
+  fi
+  
+  if ! command -v openssl &> /dev/null; then
+    sudo apt -qq install openssl
   fi
 
   sudo -k
