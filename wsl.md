@@ -9,6 +9,7 @@
 
 ## Install fonts (Optional)
 
+I prefer the FiraCode Nerd Font Mono (or)
 Install (FantasqueSansMono Nerd Font) [https://github.com/ryanoasis/nerd-fonts]
 
 ## Terminal (Optional)
