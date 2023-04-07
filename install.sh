@@ -20,30 +20,30 @@
 set -ex
 
 if command sudo -v; then
-  sudo apt -qq update
-  sudo apt -qq upgrade
+  sudo apt -yqq update
+  sudo apt -yqq upgrade
   if ! command -v add-apt-repository &> /dev/null; then
-    sudo apt -qq install software-properties-common
+    sudo apt -yqq install software-properties-common
   fi
 
   for program in vim autoconf curl python3  clang-format clang-tidy clang gcc \
                  gdb openssl  wget     ; do
     if ! command -v $program &> /dev/null; then
-      sudo apt -qq install $program
+      sudo apt -yqq install $program
     fi
   done;
   unset program;
   
   if ! command -v srec_cat &> /dev/null; then
-    sudo apt -qq install srecord
+    sudo apt -yqq install srecord
   fi
 
   if ! command -v hexdump &> /dev/null; then
-    sudo apt -qq install bsdmainutils
+    sudo apt -yqq install bsdmainutils
   fi
 
   if ! command -v lsb_release &> /dev/null; then
-    sudo apt -qq install lsb-compat
+    sudo apt -yqq install lsb-compat
   fi
 
   sudo -k
@@ -60,7 +60,7 @@ fi
 if ! command -v starship &> /dev/null; then
   curl -ksS https://starship.rs/install.sh -o starship_install.sh
   chmod +x starship_install.sh
-  ./starship_install.sh -b ~/.local/bin
+  ./starship_install.sh -y -b ~/.local/bin
   rm -rf starship_install.sh
 fi
 
@@ -80,7 +80,7 @@ fi
 if ! command -v fzf &> /dev/null; then
   rm -rf ~/.fzf
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install
+  ~/.fzf/install --all
 fi
 
 if [[ ! -f ~/.local/bin/git-filter-repo ]]; then
