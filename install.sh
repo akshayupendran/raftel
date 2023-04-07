@@ -43,10 +43,6 @@ if command sudo -v; then
     sudo apt -qq install lsb-compat
   fi
 
-  if ! command -v podman &> /dev/null; then
-    echo "!!!!!!Please manually install podman!!!!!"
-  fi
-
   if ! command -v clang-format &> /dev/null; then
     sudo apt -qq install clang-format
   fi
