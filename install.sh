@@ -17,30 +17,25 @@
 ### All Rights Reserved.
 ###
 
-set -e
+set -ex
 
 if command sudo -v; then
   sudo apt -qq update
   sudo apt -qq upgrade
-  
-  if ! command -v vim &> /dev/null; then
-    sudo apt -qq install vim
+  if ! command -v add-apt-repository &> /dev/null; then
+    sudo apt -qq install software-properties-common
   fi
+
+  for program in vim autoconf curl python3  clang-format clang-tidy clang gcc \
+                 gdb openssl  wget     ; do
+    if ! command -v $program &> /dev/null; then
+      sudo apt -qq install $program
+    fi
+  done;
+  unset program;
   
   if ! command -v srec_cat &> /dev/null; then
     sudo apt -qq install srecord
-  fi
-  
-  if ! command -v autoconf &> /dev/null; then
-    sudo apt -qq install autoconf
-  fi
-  
-  if ! command -v curl &> /dev/null; then
-    sudo apt -qq install curl
-  fi
-    
-  if ! command -v python3 &> /dev/null; then
-    sudo apt -qq install python3
   fi
 
   if ! command -v hexdump &> /dev/null; then
@@ -49,30 +44,6 @@ if command sudo -v; then
 
   if ! command -v lsb_release &> /dev/null; then
     sudo apt -qq install lsb-compat
-  fi
-
-  if ! command -v clang-format &> /dev/null; then
-    sudo apt -qq install clang-format
-  fi
-
-  if ! command -v clang &> /dev/null; then
-    sudo apt -qq install clang
-  fi
-  
-  if ! command -v clang-tidy &> /dev/null; then
-    sudo apt -qq install clang-tidy
-  fi
-
-  if ! command -v gcc &> /dev/null; then
-    sudo apt -qq install gcc
-  fi
-
-  if ! command -v gdb &> /dev/null; then
-    sudo apt -qq install gdb
-  fi
-  
-  if ! command -v openssl &> /dev/null; then
-    sudo apt -qq install openssl
   fi
 
   sudo -k
