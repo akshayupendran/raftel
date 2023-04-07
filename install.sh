@@ -22,52 +22,51 @@ set -e
 if command sudo -v; then
   sudo apt -qq update
   sudo apt -qq upgrade
-	
-	if ! command -v vim &> /dev/null
-	then
-		sudo apt -qq install vim
-	fi
-
-	if ! command -v curl &> /dev/null
-	then
-	  sudo apt -qq install curl
-	fi
-  	
-	if ! command -v python3 &> /dev/null
-	then
-		sudo apt -qq install python3
-	fi
-
-	if ! command -v hexdump &> /dev/null
-	then
-		sudo apt -qq install bsdmainutils
-	fi
-
-  if ! command -v lsb_release &> /dev/null
-	then
-		sudo apt -qq install lsb-compat
-	fi
-
-	if ! command -v podman &> /dev/null
-	then
-		echo "!!!!!!Please manually install podman!!!!!"
-	fi
-
-	if ! command -v clang-format &> /dev/null
-	then
-		sudo apt -qq install clang-format
-	fi
-
-	if ! command -v clang &> /dev/null
-	then
-		sudo apt -qq install clang
-	fi
   
-  if ! command -v clang-tidy &> /dev/null
-	then
-		sudo apt -qq install clang-tidy
-	fi
+  if ! command -v vim &> /dev/null; then
+    sudo apt -qq install vim
+  fi
+
+  if ! command -v curl &> /dev/null; then
+    sudo apt -qq install curl
+  fi
+    
+  if ! command -v python3 &> /dev/null; then
+    sudo apt -qq install python3
+  fi
+
+  if ! command -v hexdump &> /dev/null; then
+    sudo apt -qq install bsdmainutils
+  fi
+
+  if ! command -v lsb_release &> /dev/null; then
+    sudo apt -qq install lsb-compat
+  fi
+
+  if ! command -v podman &> /dev/null; then
+    echo "!!!!!!Please manually install podman!!!!!"
+  fi
+
+  if ! command -v clang-format &> /dev/null; then
+    sudo apt -qq install clang-format
+  fi
+
+  if ! command -v clang &> /dev/null; then
+    sudo apt -qq install clang
+  fi
   
+  if ! command -v clang-tidy &> /dev/null; then
+    sudo apt -qq install clang-tidy
+  fi
+
+  if ! command -v gcc &> /dev/null; then
+    sudo apt -qq install gcc
+  fi
+
+  if ! command -v gdb &> /dev/null; then
+    sudo apt -qq install gdb
+  fi
+
   sudo -k
 fi
 
@@ -91,12 +90,12 @@ if [[ ! -d ~/.config ]]; then
 fi
 
 if [[ ! -f ~/.path ]]; then
-	mv -f ~/.bashrc ~/.bashrc.bak
-	cp -RT dotfiles/ ~/
+  mv -f ~/.bashrc ~/.bashrc.bak
+  cp -RT dotfiles/ ~/
 fi
 
 if [[ ! -f ~/.config/starship.toml ]]; then
-	~/.local/bin/starship preset pastel-powerline > ~/.config/starship.toml
+  ~/.local/bin/starship preset pastel-powerline > ~/.config/starship.toml
 fi
 
 if ! command -v fzf &> /dev/null; then
