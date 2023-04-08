@@ -26,8 +26,9 @@ if command sudo -v; then
     sudo apt -yqq install software-properties-common
   fi
 
-  for program in vim autoconf curl python3  clang-format clang-tidy clang gcc \
-                 gdb openssl  wget podman   ; do
+# ToDo: Make sure libssl-dev is installed only once.
+  for program in vim autoconf curl python3  clang-format clang-tidy clang gcc\
+                 gdb openssl wget podman make man libssl-dev g++          ; do
     if ! command -v $program &> /dev/null; then
       sudo apt -yqq install $program
     fi
@@ -52,6 +53,15 @@ if command sudo -v; then
     sudo ./script.deb.sh
     rm -f script.deb.sh
     sudo apt install git-lfs
+  fi
+
+  if ! command -v git-crypt &> /dev/null; then
+    git clone https://github.com/AGWA/git-crypt
+    cd git-crypt
+    make -j8
+    make install PREFIX=~/.local
+    cd ..
+    rm -rf git-crypt
   fi
 
   sudo -k
