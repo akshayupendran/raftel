@@ -27,7 +27,7 @@ if command sudo -v; then
   fi
 
   for program in vim autoconf curl python3  clang-format clang-tidy clang gcc \
-                 gdb openssl  wget     ; do
+                 gdb openssl  wget podman   ; do
     if ! command -v $program &> /dev/null; then
       sudo apt -yqq install $program
     fi
@@ -45,31 +45,31 @@ if command sudo -v; then
   if ! command -v lsb_release &> /dev/null; then
     sudo apt -yqq install lsb-compat
   fi
-
-  if ! command -v podman &> /dev/null; then
-    sudo apt -yqq install podman
-  fi
   
+  if ! command -v git-lfs &> /dev/null; then
+    curl -ksS https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh -o script.deb.sh
+    chmod +x script.deb.sh
+    sudo ./script.deb.sh
+    rm -f script.deb.sh
+    sudo apt install git-lfs
+  fi
+
   sudo -k
 fi
 
-if [[ ! -d ~/.local ]]; then
-  mkdir ~/.local
-fi
-
-if [[ ! -d ~/.local/bin ]]; then
-  mkdir ~/.local/bin
-fi
+for folder in ~/.{local,local/bin,config}; do
+  if [[ ! -d $folder ]]; then
+    mkdir $folder
+  fi
+done;
+unset folder;
 
 if ! command -v starship &> /dev/null; then
   curl -ksS https://starship.rs/install.sh -o starship_install.sh
   chmod +x starship_install.sh
   ./starship_install.sh -y -b ~/.local/bin
   rm -f starship_install.sh
-fi
-
-if [[ ! -d ~/.config ]]; then
-  mkdir ~/.config
+  sudo apt install git-lfs
 fi
 
 if [[ ! -f ~/.path ]]; then
