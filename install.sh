@@ -28,15 +28,20 @@ if command sudo -v; then
 
 # ToDo: Make sure libssl-dev is installed only once.
   for program in vim autoconf curl python3  clang-format clang-tidy clang gcc\
-                 gdb openssl wget podman make man libssl-dev g++          ; do
+                 gdb openssl wget podman make man libssl-dev g++ git-lfs     \
+                 git-crypt; do
     if ! command -v $program &> /dev/null; then
       sudo apt -yqq install $program
     fi
   done;
   unset program;
-  
+
   if ! command -v srec_cat &> /dev/null; then
     sudo apt -yqq install srecord
+  fi
+
+  if ! command -v named &> /dev/null; then
+    sudo apt -yqq install bind9
   fi
 
   if ! command -v hexdump &> /dev/null; then
@@ -46,25 +51,13 @@ if command sudo -v; then
   if ! command -v lsb_release &> /dev/null; then
     sudo apt -yqq install lsb-compat
   fi
-  
-  if ! command -v git-lfs &> /dev/null; then
-    curl -ksS https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh -o script.deb.sh
-    chmod +x script.deb.sh
-    sudo ./script.deb.sh
-    rm -f script.deb.sh
-    sudo apt install git-lfs
-  fi
-
-  if ! command -v git-crypt &> /dev/null; then
-    git clone https://github.com/AGWA/git-crypt
-    cd git-crypt
-    make -j8
-    make install PREFIX=~/.local
-    cd ..
-    rm -rf git-crypt
-  fi
 
   sudo -k
+fi
+
+if [[ ! -f ~/.path ]]; then
+  mv -f ~/.bashrc ~/.bashrc.bak
+  cp -RT dotfiles/ ~/
 fi
 
 for folder in ~/.{local,local/bin,config}; do
@@ -80,11 +73,6 @@ if ! command -v starship &> /dev/null; then
   ./starship_install.sh -y -b ~/.local/bin
   rm -f starship_install.sh
   sudo apt install git-lfs
-fi
-
-if [[ ! -f ~/.path ]]; then
-  mv -f ~/.bashrc ~/.bashrc.bak
-  cp -RT dotfiles/ ~/
 fi
 
 if [[ ! -f ~/.config/starship.toml ]]; then
