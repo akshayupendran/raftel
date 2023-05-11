@@ -19,11 +19,11 @@
 
 set -ex
 
-if command sudo -v; then
-  sudo apt -yqq update
-  sudo apt -yqq upgrade
+#if command -v; then
+  apt -yqq update
+  apt -yqq upgrade
   if ! command -v add-apt-repository &> /dev/null; then
-    sudo apt -yqq install software-properties-common
+    apt -yqq install software-properties-common
   fi
 
 # ToDo: Make sure libssl-dev is installed only once.
@@ -31,29 +31,29 @@ if command sudo -v; then
                  gdb openssl wget podman make man libssl-dev g++ git-lfs     \
                  git-crypt; do
     if ! command -v $program &> /dev/null; then
-      sudo apt -yqq install $program
+      apt -yqq install $program
     fi
   done;
   unset program;
 
   if ! command -v srec_cat &> /dev/null; then
-    sudo apt -yqq install srecord
+    apt -yqq install srecord
   fi
 
   if ! command -v named &> /dev/null; then
-    sudo apt -yqq install bind9
+    apt -yqq install bind9
   fi
 
   if ! command -v hexdump &> /dev/null; then
-    sudo apt -yqq install bsdmainutils
+    apt -yqq install bsdmainutils
   fi
 
   if ! command -v lsb_release &> /dev/null; then
-    sudo apt -yqq install lsb-compat
+    apt -yqq install lsb-compat
   fi
 
-  sudo -k
-fi
+#  -k
+#fi
 
 if [[ ! -f ~/.path ]]; then
   mv -f ~/.bashrc ~/.bashrc.bak
@@ -72,7 +72,7 @@ if ! command -v starship &> /dev/null; then
   chmod +x starship_install.sh
   ./starship_install.sh -y -b ~/.local/bin
   rm -f starship_install.sh
-  sudo apt install git-lfs
+  apt install git-lfs
 fi
 
 if [[ ! -f ~/.config/starship.toml ]]; then
