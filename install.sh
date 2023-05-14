@@ -17,8 +17,21 @@
 ### All Rights Reserved.
 ###
 
-set -ex
+set -e
 
+if [[ ! -f ~/.path ]]; then
+  mv -f ~/.bashrc ~/.bashrc.bak
+  cp -RT dotfiles/ ~/
+fi
+
+for folder in ~/.{local,local/bin,config}; do
+  if [[ ! -d $folder ]]; then
+    mkdir $folder
+  fi
+done;
+unset folder;
+
+# Requires sudo
 if command sudo -v; then
   sudo apt -yqq update
   sudo apt -yqq upgrade
@@ -46,7 +59,8 @@ if command sudo -v; then
   if ! command -v lsb_release &> /dev/null; then
     sudo apt -yqq install lsb-compat
   fi
-  
+
+  # Requires sudo and curlrc
   if ! command -v git-lfs &> /dev/null; then
     curl -ksS https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh -o script.deb.sh
     chmod +x script.deb.sh
@@ -54,39 +68,28 @@ if command sudo -v; then
     rm -f script.deb.sh
     sudo apt install git-lfs
   fi
-
-  if ! command -v git-crypt &> /dev/null; then
-    git clone https://github.com/AGWA/git-crypt
-    cd git-crypt
-    make -j8
-    make install PREFIX=~/.local
-    cd ..
-    rm -rf git-crypt
-  fi
-
   sudo -k
 fi
 
-for folder in ~/.{local,local/bin,config}; do
-  if [[ ! -d $folder ]]; then
-    mkdir $folder
-  fi
-done;
-unset folder;
+# does not require sudo
+if ! command -v git-crypt &> /dev/null; then
+  git clone https://github.com/AGWA/git-crypt
+  cd git-crypt
+  make -j8
+  make install PREFIX=~/.local
+  cd ..
+  rm -rf git-crypt
+fi
 
+# Requires curlrc
 if ! command -v starship &> /dev/null; then
   curl -ksS https://starship.rs/install.sh -o starship_install.sh
   chmod +x starship_install.sh
   ./starship_install.sh -y -b ~/.local/bin
   rm -f starship_install.sh
-  sudo apt install git-lfs
 fi
 
-if [[ ! -f ~/.path ]]; then
-  mv -f ~/.bashrc ~/.bashrc.bak
-  cp -RT dotfiles/ ~/
-fi
-
+# Requires starship
 if [[ ! -f ~/.config/starship.toml ]]; then
   ~/.local/bin/starship preset pastel-powerline > ~/.config/starship.toml
 fi
