@@ -41,15 +41,20 @@ if command sudo -v; then
 
 # ToDo: Make sure libssl-dev is installed only once.
   for program in vim autoconf curl python3  clang-format clang-tidy clang gcc\
-                 gdb openssl wget podman make man libssl-dev g++          ; do
+                 gdb openssl wget podman make man libssl-dev g++ git-lfs     \
+                 git-crypt; do
     if ! command -v $program &> /dev/null; then
       sudo apt -yqq install $program
     fi
   done;
   unset program;
-  
+
   if ! command -v srec_cat &> /dev/null; then
     sudo apt -yqq install srecord
+  fi
+
+  if ! command -v named &> /dev/null; then
+    sudo apt -yqq install bind9
   fi
 
   if ! command -v hexdump &> /dev/null; then
@@ -89,7 +94,7 @@ if ! command -v starship &> /dev/null; then
   rm -f starship_install.sh
 fi
 
-# Requires starship
+#Requires Starship
 if [[ ! -f ~/.config/starship.toml ]]; then
   ~/.local/bin/starship preset pastel-powerline > ~/.config/starship.toml
 fi
