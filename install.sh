@@ -17,7 +17,7 @@
 ### All Rights Reserved.
 ###
 
-set -e
+set -ex
 
 if [[ ! -f ~/.path ]]; then
   mv -f ~/.bashrc ~/.bashrc.bak
