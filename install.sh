@@ -42,7 +42,7 @@ if command sudo -v; then
 # ToDo: Make sure libssl-dev is installed only once.
   for program in vim autoconf curl python3 clang-format clang-tidy clang gcc\
                  gdb openssl wget make man libssl-dev g++ git-lfs shellcheck\
-                 git-crypt; do
+                 git-crypt tldr; do
     if ! command -v $program &> /dev/null; then
       sudo apt -yqq install $program
     fi
