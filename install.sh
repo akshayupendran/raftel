@@ -87,6 +87,7 @@ if [[ ! -f ~/.local/bin/git-filter-repo ]]; then
   curl -ksS https://raw.githubusercontent.com/newren/git-filter-repo/main/git-filter-repo -o ~/.local/bin/git-filter-repo
 fi
 
+<<upcoming_cr
 # Install rustc
 if ! command -v rustc &> /dev/null; then
   curl --proto '=https' --tlsv1.2 -ksSf https://sh.rustup.rs -o temp.sh
@@ -94,5 +95,5 @@ if ! command -v rustc &> /dev/null; then
   ./temp.sh -y
   rm -f temp.sh
 fi
-
+upcoming_cr
 echo "Please run source ~/.bashrc a few times to complete installation !"
