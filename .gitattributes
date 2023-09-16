@@ -1,3 +1,0 @@
-test_encrypt.txt filter=git-crypt diff=git-crypt
-*.key filter=git-crypt diff=git-crypt
-private/** filter=git-crypt diff=git-crypt

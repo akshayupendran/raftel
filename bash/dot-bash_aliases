@@ -5,6 +5,7 @@
 alias dl="cd /mnt/c/Users/akrish10/Downloads"
 alias dt="cd '/mnt/c/Users/akrish10/OneDrive - Visteon/Desktop'"
 alias p="cd ~/wsl-setup"
+alias od="cd '/mnt/c/Users/akrish10/OneDrive - Visteon/01_restic_backup'"
 #--------------------------------------------------------------
 
 ## Author Akshay Krishna Upendran
