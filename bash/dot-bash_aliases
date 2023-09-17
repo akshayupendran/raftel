@@ -27,9 +27,3 @@ alias update='sudo apt update; sudo apt -y upgrade'
 alias hd="hexdump -C"
 alias map="xargs -n1"
 alias path='echo -e ${PATH//:/\\n}'
-
-# Always use python3
-alias python=python3
-
-# Always use podman
-alias docker=podman

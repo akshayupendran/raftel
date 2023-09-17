@@ -38,6 +38,9 @@ if command sudo -v; then
     fi
   done;
   unset l_program;
+  # Always use python3
+  update-alternatives --remove python /usr/bin/python2
+  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
   sudo -k  
 fi
 
@@ -85,6 +88,11 @@ fi
 # Install Filter Repo
 if [[ ! -f ~/.local/bin/git-filter-repo ]]; then
   curl -ksS https://raw.githubusercontent.com/newren/git-filter-repo/main/git-filter-repo -o ~/.local/bin/git-filter-repo
+fi
+
+# Install Repo
+if [[ ! -d ~/.local/git-repo ]]; then
+  git clone https://gerrit.googlesource.com/git-repo ${HOME}/.local/git-repo
 fi
 
 <<upcoming_cr
