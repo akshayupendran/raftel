@@ -96,3 +96,18 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+function ri() {
+    repo init \
+        --manifest-url "$1" --manifest-branch "$3" --manifest-name "$2" --manifest-depth=1 \
+        --current-branch --no-tags \
+        \
+        --depth=1 --no-clone-bundle --git-lfs \
+        --no-repo-verify
+}
+
+function rs() {
+    repo sync \
+        --jobs="$(nproc --all)" --fail-fast --current-branch --no-clone-bundle --no-tags --auto-gc \
+        --no-repo-verify
+}
