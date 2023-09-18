@@ -48,8 +48,12 @@ fi
 if command -v stow &> /dev/null; then
   ## Dirty check via .path if path already exists. If exists dont install.
   if [[ ! -f ~/.wgetrc ]]; then
-    mv -f ~/.bashrc ~/.bashrc.bak
-    mv -f ~/.gitconfig ~/.gitconfig.bak
+    if [[ -f ~/.bashrc ]]; then
+      mv -f ~/.bashrc ~/.bashrc.bak
+    fi
+    if [[ -f ~/.gitconfig ]]; then
+      mv -f ~/.gitconfig ~/.gitconfig.bak
+    fi
     for l_folder in */ ; do\
       stow --dotfiles "$l_folder"
     done
