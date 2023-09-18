@@ -47,8 +47,9 @@ fi
 # Dotfiles stowing - requires stow
 if command -v stow &> /dev/null; then
   ## Dirty check via .path if path already exists. If exists dont install.
-  if [[ ! -f ~/.path ]]; then
+  if [[ ! -f ~/.wgetrc ]]; then
     mv -f ~/.bashrc ~/.bashrc.bak
+    mv -f ~/.gitconfig ~/.gitconfig.bak
     for l_folder in */ ; do\
       stow --dotfiles "$l_folder"
     done
