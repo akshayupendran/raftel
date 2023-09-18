@@ -109,4 +109,4 @@ if ! command -v rustc &> /dev/null; then
   rm -f temp.sh
 fi
 upcoming_cr
-echo "Please run source ~/.bashrc a few times to complete installation !"
+echo "Please run ```source ~/.bashrc``` a few times to complete installation !"
