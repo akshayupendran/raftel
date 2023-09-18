@@ -22,7 +22,7 @@ if command sudo -v; then
   sudo apt -yqq upgrade
   ### Useful scripts to add and remove PPA
   if ! command -v add-apt-repository &> /dev/null; then
-    sudo apt -yqq inst:all software-properties-common
+    sudo apt -yqq install software-properties-common
   fi
   ### Install list of apt programs
   for l_program in $g_apt_programs; do
