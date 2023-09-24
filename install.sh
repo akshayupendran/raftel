@@ -12,7 +12,7 @@
 ###     akrish10(Akshay Krishna Upendran)
 ###
 
-set -ex
+set -e
 
 # Source with global variables
 source install.conf
