@@ -13,31 +13,52 @@
 ###
 
 set -ex
-# APT Installations
-declare -A g_apt_programs_dict
+
+# Source with global variables
 source install.conf
-## Requires sudo
+
+# Requires sudo
 if command sudo -v; then
+  ## Install company specific internet proxy certificates if any
   sudo apt -yqq update
-  sudo apt -yqq upgrade
-  ### Useful scripts to add and remove PPA
+  if ! command -v update-ca-certificates &> /dev/null; then
+    sudo apt -yqq install ca-certificates
+  fi
+  for l_local_var in "${g_cert[@]}"; do
+    if [[ ! -f "/usr/local/share/ca-certificates/$(basename "${l_local_var}")" ]]; then
+      sudo cp "${l_local_var}" /usr/local/share/ca-certificates
+      sudo update-ca-certificates
+    fi
+  done;
+  unset l_local_var;
+
+  ## Install all ppa(s) defined
   if ! command -v add-apt-repository &> /dev/null; then
     sudo apt -yqq install software-properties-common
   fi
-  ### Install list of apt programs
-  for l_program in $g_apt_programs; do
-    if ! command -v $l_program &> /dev/null; then
-      sudo apt -yqq install $l_program
+  for l_local_var in ${g_ppa}; do
+    if ! grep -q "^deb .*$l_local_var" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+      sudo add-apt-repository ppa:"${l_local_var}" -y
     fi
   done;
-  unset l_program;
+  unset l_local_var;
+
+  ## Install list of apt programs
+  sudo apt -yqq update
+  sudo apt -yqq upgrade
+  for l_local_var in $g_apt_programs; do
+    if ! command -v "${l_local_var}" &> /dev/null; then
+      sudo apt -yqq install "${l_local_var}"
+    fi
+  done;
+  unset l_local_var;
   ### Install second list of apt programs
-  for l_program in "${!g_apt_programs_dict[@]}"; do
-    if ! command -v ${g_apt_programs_dict[$l_program]} &> /dev/null; then
-      sudo apt -yqq install $l_program
+  for l_local_var in "${!g_apt_programs_dict[@]}"; do
+    if ! command -v ${g_apt_programs_dict[$l_local_var]} &> /dev/null; then
+      sudo apt -yqq install "${l_local_var}"
     fi
   done;
-  unset l_program;
+  unset l_local_var;
   # Always use python3
   update-alternatives --remove python /usr/bin/python2
   sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
@@ -61,12 +82,12 @@ if command -v stow &> /dev/null; then
   fi
 fi
 
-for l_folder in ~/.{local,local/bin,config}; do
-  if [[ ! -d $l_folder ]]; then
-    mkdir $l_folder
+for l_local_var in ~/.{local,local/bin,config}; do
+  if [[ ! -d $l_local_var ]]; then
+    mkdir $l_local_var
   fi
 done;
-unset l_folder;
+unset l_local_var;
 
 # Installation of starship -> Requires curl
 if command -v curl &> /dev/null; then
@@ -97,16 +118,7 @@ fi
 
 # Install Repo
 if [[ ! -d ~/.local/git-repo ]]; then
-  git clone https://gerrit.googlesource.com/git-repo ${HOME}/.local/git-repo
+  git clone https://gerrit.googlesource.com/git-repo "${HOME}"/.local/git-repo
 fi
 
-<<upcoming_cr
-# Install rustc
-if ! command -v rustc &> /dev/null; then
-  curl --proto '=https' --tlsv1.2 -ksSf https://sh.rustup.rs -o temp.sh
-  chmod +x temp.sh
-  ./temp.sh -y
-  rm -f temp.sh
-fi
-upcoming_cr
-echo "Please run ```source ~/.bashrc``` a few times to complete installation !"
+echo "Please run source ~/.bashrc a few times to complete installation !"
