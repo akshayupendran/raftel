@@ -12,7 +12,7 @@
 ###     akrish10(Akshay Krishna Upendran)
 ###
 
-set -e
+set -ex
 
 # Source with global variables
 source install.conf
@@ -119,6 +119,11 @@ fi
 # Install Repo
 if [[ ! -d ~/.local/git-repo ]]; then
   git clone https://gerrit.googlesource.com/git-repo "${HOME}"/.local/git-repo
+fi
+
+# Install RUST
+if ! command -v rustup &> /dev/null; then
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
 echo "Please run source ~/.bashrc a few times to complete installation !"
