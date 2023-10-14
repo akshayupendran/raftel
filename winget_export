@@ -104,7 +104,16 @@
 				},
 				{
 					"PackageIdentifier" : "PuTTY.PuTTY"
-				}
+				},
+				{
+					"PackageIdentifier" : "Canonical.Ubuntu.2004"
+				},
+				{
+					"PackageIdentifier" : "DEVCOM.JetBrainsMonoNerdFont"
+				},
+				{
+					"PackageIdentifier" : "Starship.Starship"
+				}				
 			],
 			"SourceDetails" : 
 			{

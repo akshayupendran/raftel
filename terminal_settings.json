@@ -1,4 +1,5 @@
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
@@ -30,45 +31,42 @@
     ],
     "copyFormatting": "none",
     "copyOnSelect": true,
-    "defaultProfile": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+    "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
     "launchMode": "maximized",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
-        "defaults": {},
+        "defaults": 
+        {
+            "font": 
+            {
+                "face": "JetBrainsMono Nerd Font"
+            }
+        },
         "list": 
         [
             {
-                "commandline": "powershell.exe",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell"
             },
             {
-                "commandline": "cmd.exe",
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
             },
             {
-                "colorScheme": "Raspberry",
-                "font": 
-                {
-                    "face": "FantasqueSansMono Nerd Font"
-                },
-                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
-                "name": "Ubuntu-20.04",
+                "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "commandline": "debian.exe",
-                "font": 
-                {
-                    "face": "FantasqueSansMono Nerd Font"
-                },
-                "guid": "{c857f6d0-5d4b-45e3-9bb0-a13e19bc1628}",
-                "hidden": false,
-                "name": "Debian"
             }
         ]
     },
@@ -305,5 +303,5 @@
             "yellow": "#808000"
         }
     ],
-    "startOnUserLogin": true
+    "themes": []
 }
