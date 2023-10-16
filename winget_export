@@ -113,7 +113,13 @@
 				},
 				{
 					"PackageIdentifier" : "Starship.Starship"
-				}				
+				},
+				{
+					"PackageIdentifier" : "restic.restic"
+				},
+				{
+					"PackageIdentifier" : "Doist.Todoist"
+				}
 			],
 			"SourceDetails" : 
 			{
