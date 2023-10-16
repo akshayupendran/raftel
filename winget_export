@@ -103,25 +103,36 @@
 					"PackageIdentifier" : "GitHub.GitHubDesktop"
 				},
 				{
+					// putty license
 					"PackageIdentifier" : "PuTTY.PuTTY"
 				},
 				{
+					// we all use WSL2
 					"PackageIdentifier" : "Canonical.Ubuntu.2004"
 				},
 				{
+					// Font installation requires license ??????
 					"PackageIdentifier" : "DEVCOM.JetBrainsMonoNerdFont"
 				},
 				{
+					// ISC
 					"PackageIdentifier" : "Starship.Starship"
 				},
 				{
+					//BSD 2
 					"PackageIdentifier" : "restic.restic"
 				},
 				{
+					// Beginner is free
 					"PackageIdentifier" : "Doist.Todoist"
 				},
 				{
+					// MPL 2
 					"PackageIdentifier" : "SyncTrayzor.SyncTrayzor"
+				},
+				{
+					// EULA Document with amount and version information present
+					"PackageIdentifier" : "VMware.WorkstationPlayer"
 				}
 			],
 			"SourceDetails" : 
