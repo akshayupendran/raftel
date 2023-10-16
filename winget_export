@@ -76,30 +76,39 @@
 					"PackageIdentifier" : "Google.Chrome"
 				},
 				{
+					// Dell laptops only
 					"PackageIdentifier" : "Dell.CommandUpdate"
 				},
 				{
+					// GPL 3
 					"PackageIdentifier" : "calibre.calibre"
 				},
 				{
+					// Apapche License
 					"PackageIdentifier" : "RedHat.Podman"
 				},
 				{
+					// Zero clause license
 					"PackageIdentifier" : "Python.Python.3.12"
 				},
 				{
+					// freemium
 					"PackageIdentifier" : "Notion.Notion"
 				},
 				{
+					// gpl3
 					"PackageIdentifier" : "ShareX.ShareX"
 				},
 				{
+					// MIT License
 					"PackageIdentifier" : "File-New-Project.EarTrumpet"
 				},
 				{
+					// MIT License
 					"PackageIdentifier" : "Wox.Wox"
 				},
 				{
+					// basic - The basics for individuals and organizations
 					"PackageIdentifier" : "GitHub.GitHubDesktop"
 				},
 				{
