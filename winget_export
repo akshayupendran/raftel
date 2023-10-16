@@ -12,9 +12,9 @@
 				{
 					"PackageIdentifier" : "7zip.7zip"
 				},
-				{
-					"PackageIdentifier" : "Google.AndroidStudio"
-				},
+				// {
+				// 	"PackageIdentifier" : "Google.AndroidStudio"
+				// },
 				{
 					"PackageIdentifier" : "ScooterSoftware.BeyondCompare4"
 				},
@@ -51,9 +51,9 @@
 				{
 					"PackageIdentifier" : "WiresharkFoundation.Wireshark"
 				},
-				{
-					"PackageIdentifier" : "ShiningLight.OpenSSL"
-				},
+				// {
+				// 	"PackageIdentifier" : "ShiningLight.OpenSSL"
+				// },
 				{
 					"PackageIdentifier" : "GitHub.GitLFS"
 				},
@@ -119,6 +119,9 @@
 				},
 				{
 					"PackageIdentifier" : "Doist.Todoist"
+				},
+				{
+					"PackageIdentifier" : "SyncTrayzor.SyncTrayzor"
 				}
 			],
 			"SourceDetails" : 
