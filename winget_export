@@ -7,19 +7,43 @@
 			"Packages" : 
 			[
 				{
-					"PackageIdentifier" : "Joplin.Joplin"
+					"PackageIdentifier" : "7zip.7zip"
 				},
 				{
-					"PackageIdentifier" : "7zip.7zip"
+					"PackageIdentifier" : "Anki.Anki"
 				},
 				// {
 				// 	"PackageIdentifier" : "Google.AndroidStudio"
 				// },
 				{
+					// GPL 3
+					"PackageIdentifier" : "calibre.calibre"
+				},
+				{
 					"PackageIdentifier" : "ScooterSoftware.BeyondCompare4"
 				},
 				{
+					"PackageIdentifier" : "Google.Chrome"
+				},
+				{
+					"PackageIdentifier" : "chrisant996.Clink"
+				},
+				{
+					"PackageIdentifier" : "Kitware.CMake"
+				},
+				{
+					// Dell laptops only
+					"PackageIdentifier" : "Dell.CommandUpdate"
+				},
+				{
+					// MIT License
+					"PackageIdentifier" : "File-New-Project.EarTrumpet"
+				},
+				{
 					"PackageIdentifier" : "voidtools.Everything"
+				},
+				{
+					"PackageIdentifier" : "Mozilla.Firefox"
 				},
 				{
 					"PackageIdentifier" : "GIMP.GIMP"
@@ -28,43 +52,79 @@
 					"PackageIdentifier" : "Git.Git"
 				},
 				{
+					// basic - The basics for individuals and organizations
+					"PackageIdentifier" : "GitHub.GitHubDesktop"
+				},
+				{
+					"PackageIdentifier" : "GitHub.GitLFS"
+				},
+				{
 					"PackageIdentifier" : "IrfanSkiljan.IrfanView"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.WindowsTerminal"
+					"PackageIdentifier" : "Joplin.Joplin"
 				},
 				{
-					"PackageIdentifier" : "Mozilla.Firefox"
+					"PackageIdentifier" : "Mobatek.MobaXterm"
+				},
+				{
+					// Font installation requires license ??????
+					"PackageIdentifier" : "DEVCOM.JetBrainsMonoNerdFont"
 				},
 				{
 					"PackageIdentifier" : "Notepad++.Notepad++"
 				},
 				{
-					"PackageIdentifier" : "SumatraPDF.SumatraPDF"
-				},
-				{
-					"PackageIdentifier" : "WinMerge.WinMerge"
-				},
-				{
-					"PackageIdentifier" : "chrisant996.Clink"
-				},
-				{
-					"PackageIdentifier" : "WiresharkFoundation.Wireshark"
+					// freemium
+					"PackageIdentifier" : "Notion.Notion"
 				},
 				// {
 				// 	"PackageIdentifier" : "ShiningLight.OpenSSL"
 				// },
 				{
-					"PackageIdentifier" : "GitHub.GitLFS"
+					// Apapche License
+					"PackageIdentifier" : "RedHat.Podman"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.PowerToys"
 				},
 				{
-					"PackageIdentifier" : "Kitware.CMake"
+					// putty license
+					"PackageIdentifier" : "PuTTY.PuTTY"
 				},
 				{
-					"PackageIdentifier" : "Mobatek.MobaXterm"
+					// Zero clause license
+					"PackageIdentifier" : "Python.Python.3.12"
+				},
+				{
+					//BSD 2
+					"PackageIdentifier" : "restic.restic"
+				},
+				{
+					// gpl3
+					"PackageIdentifier" : "ShareX.ShareX"
+				},
+				{
+					// ISC
+					"PackageIdentifier" : "Starship.Starship"
+				},
+				{
+					"PackageIdentifier" : "SumatraPDF.SumatraPDF"
+				},
+				{
+					// MPL 2
+					"PackageIdentifier" : "SyncTrayzor.SyncTrayzor"
+				},
+				{
+					// Beginner is free
+					"PackageIdentifier" : "Doist.Todoist"
+				},
+				{
+					// we all use WSL2
+					"PackageIdentifier" : "Canonical.Ubuntu.2004"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsTerminal"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VisualStudioCode"
@@ -73,71 +133,14 @@
 					"PackageIdentifier" : "VideoLAN.VLC"
 				},
 				{
-					"PackageIdentifier" : "Google.Chrome"
+					"PackageIdentifier" : "WinMerge.WinMerge"
 				},
 				{
-					// Dell laptops only
-					"PackageIdentifier" : "Dell.CommandUpdate"
-				},
-				{
-					// GPL 3
-					"PackageIdentifier" : "calibre.calibre"
-				},
-				{
-					// Apapche License
-					"PackageIdentifier" : "RedHat.Podman"
-				},
-				{
-					// Zero clause license
-					"PackageIdentifier" : "Python.Python.3.12"
-				},
-				{
-					// freemium
-					"PackageIdentifier" : "Notion.Notion"
-				},
-				{
-					// gpl3
-					"PackageIdentifier" : "ShareX.ShareX"
-				},
-				{
-					// MIT License
-					"PackageIdentifier" : "File-New-Project.EarTrumpet"
+					"PackageIdentifier" : "WiresharkFoundation.Wireshark"
 				},
 				{
 					// MIT License
 					"PackageIdentifier" : "Wox.Wox"
-				},
-				{
-					// basic - The basics for individuals and organizations
-					"PackageIdentifier" : "GitHub.GitHubDesktop"
-				},
-				{
-					// putty license
-					"PackageIdentifier" : "PuTTY.PuTTY"
-				},
-				{
-					// we all use WSL2
-					"PackageIdentifier" : "Canonical.Ubuntu.2004"
-				},
-				{
-					// Font installation requires license ??????
-					"PackageIdentifier" : "DEVCOM.JetBrainsMonoNerdFont"
-				},
-				{
-					// ISC
-					"PackageIdentifier" : "Starship.Starship"
-				},
-				{
-					//BSD 2
-					"PackageIdentifier" : "restic.restic"
-				},
-				{
-					// Beginner is free
-					"PackageIdentifier" : "Doist.Todoist"
-				},
-				{
-					// MPL 2
-					"PackageIdentifier" : "SyncTrayzor.SyncTrayzor"
 				},
 				{
 					// EULA Document with amount and version information present
