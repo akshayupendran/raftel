@@ -72,6 +72,10 @@
 					"PackageIdentifier" : "DEVCOM.JetBrainsMonoNerdFont"
 				},
 				{
+					// Font installation requires license ??????
+					"PackageIdentifier" : "LLVM.LLVM"
+				},
+				{
 					"PackageIdentifier" : "Notepad++.Notepad++"
 				},
 				{
@@ -128,7 +132,7 @@
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VisualStudioCode"
-				},
+				},				
 				{
 					"PackageIdentifier" : "VideoLAN.VLC"
 				},
