@@ -59,10 +59,17 @@ if command sudo -v; then
     fi
   done;
   unset l_local_var;
+  ### Install third list of apt programs
+  for l_local_var in "${!g_apt_programs_dict_file[@]}"; do
+    if [[ ! -f ${g_apt_programs_dict_file[$l_local_var]} ]]; then
+      sudo apt -yqq install "${l_local_var}"
+    fi
+  done;
+  unset l_local_var;
   # Always use python3
   update-alternatives --remove python /usr/bin/python2
   sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
-  sudo -k  
+  sudo -k
 fi
 
 # Dotfiles stowing - requires stow
@@ -96,7 +103,7 @@ if command -v curl &> /dev/null; then
     chmod +x starship_install.sh
     ./starship_install.sh -y -b ~/.local/bin
     rm -f starship_install.sh
-  fi 
+  fi
 fi
 
 # If default starship config does not exist, then take pastel-powerline as default.
