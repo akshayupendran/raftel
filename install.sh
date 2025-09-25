@@ -67,8 +67,10 @@ if command sudo -v; then
   done;
   unset l_local_var;
   # Always use python3
-  update-alternatives --remove python /usr/bin/python2
+  sudo update-alternatives --remove python /usr/bin/python2
   sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+  # Set TimeZone
+  sudo timedatectl set-timezone "${g_timezone}"
   sudo -k
 fi
 
